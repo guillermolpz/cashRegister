@@ -1,24 +1,80 @@
 <script src="/assets/cart.js?<%= Time.now.strftime('%Y%m%d%H') %>"></script>
 
-<div class="Polaris-Page">
-    <div class="Polaris-Page__Header Polaris-Page__Header--hasBreadcrumbs Polaris-Page__Header--hasSecondaryActions Polaris-Page__Header--hasSeparator">
-      <div class="Polaris-Page__Navigation">
-        <nav role="navigation"><a class="Polaris-Breadcrumbs__Breadcrumb" data-polaris-unstyled="true"><span class="Polaris-Breadcrumbs__Icon"><span class="Polaris-Icon"><svg class="Polaris-Icon__Svg" viewBox="0 0 20 20"><path d="M12 16a.997.997 0 0 1-.707-.293l-5-5a.999.999 0 0 1 0-1.414l5-5a.999.999 0 1 1 1.414 1.414L8.414 10l4.293 4.293A.999.999 0 0 1 12 16" fill-rule="evenodd"></path></svg></span></span><span class="Polaris-Breadcrumbs__Content">Polaris</span></a></nav>
+<div class="layout-splitview">
+
+  <div class="layout-sidebar">
+
+    <div class="layout-view">
+      <ul class="listview listview--horizontal listview--edgetoedge">
+        <% @products.group_by(&:product_type).each do |type, products| %>
+          <li class="listview-sectionheader">
+            <div><%= type %></div>
+          </li>
+
+          <% products.each do |product| %>
+            <li class="listview-item">
+              <div class="label-primary"><%= product.title %></div>
+              <div class="label-secondary"><%= pluralize(product.variants.count, "variant") %> </div>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="layout-master">
+    <div class="layout-view layout-view--padding">
+      <p>This application demos the various ways an external app can now interact with Shopify POS.</p>
+
+      <div id="user-info">
+        <h2>User Info</h2>
+        <table id="user">
+          <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Account Owner?</th>
+          </tr>
+        </table>
       </div>
-      <div class="Polaris-Page__MainContent">
-        <div class="Polaris-Page__TitleAndActions">
-          <div class="Polaris-Page__Title">
-            <h1 class="Polaris-DisplayText Polaris-DisplayText--sizeLarge">Polaris</h1>
-          </div>
-          <div class="Polaris-Page__Actions">
-            <div class="Polaris-Page__PrimaryAction"><button type="button" class="Polaris-Button Polaris-Button--primary Polaris-Button--disabled" disabled=""><span class="Polaris-Button__Content"><span>Save</span></span></button></div>
-            <div class="Polaris-Page__SecondaryActions">
-              <div class="Polaris-Page__IndividualActions"><button class="Polaris-Page__Action" type="button"><span class="Polaris-Page__ActionContent"><span class="Polaris-Page__ActionIcon"><span class="Polaris-Icon"><svg class="Polaris-Icon__Svg" viewBox="0 0 20 20"><path d="M13.707 10.707a.997.997 0 0 1-1.414 0L11 9.414V17a1 1 0 1 1-2 0V9.414l-1.293 1.293a.999.999 0 1 1-1.414-1.414l3-3a.999.999 0 0 1 1.414 0l3 3a.999.999 0 0 1 0 1.414zM17 2a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-3a1 1 0 1 1 0-2h2V4H4v9h2a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14z" fill-rule="evenodd"></path></svg></span></span><span>Import</span></span></button></div>
-            </div>
-          </div>
-        </div>
-        <div class="Polaris-Page__PrimaryAction"><button type="button" class="Polaris-Button Polaris-Button--primary Polaris-Button--disabled" disabled=""><span class="Polaris-Button__Content"><span>Save</span></span></button></div>
+
+      <div id="user-actions">
+        <h2>Function calls</h2>
+        <p>
+          <a href="javascript:void(0)" class="btn" onclick="ShopifyPOS.flashNotice('Flash a notice message.');">Flash notice</a>
+          <a href="javascript:void(0)" class="btn" onclick="ShopifyPOS.flashError('Flash an error message.');">Flash error</a>
+        </p>
+
+        <h2>Modal Windows</h2>
+        <p>
+          <a href="javascript:void(0)" class="btn" onclick="alert('Hello world!')">Alert modal</a>
+          <a href="javascript:void(0)" class="btn" onclick="confirm('Are you sure?')">Confirm modal</a>
+          <a href="javascript:void(0)" class="btn" onclick="prompt('Enter a value:')">Prompt modal</a>
+        </p>
+
+        <h2>System</h2>
+        <p>
+          <a href="javascript:void(0)" class="btn" onclick="window.print()">Print</a>
+        </p>
       </div>
     </div>
-
   </div>
+
+</div>
+
+<script>
+  // We're ready!
+  ShopifyPOS.ready(function() {
+    document.querySelector('#user-actions').style.display = "block";
+
+    var user = ShopifyPOS.User.current;
+    var row = $("<tr>")
+      .append($('<td>').html(user.id))
+      .append($('<td>').html(user.first_name))
+      .append($('<td>').html(user.last_name))
+      .append($('<td>').html(user.email))
+      .append($('<td>').html(user.account_owner))
+      .appendTo("#user");
+  });
+</script>
