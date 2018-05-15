@@ -1,19 +1,9 @@
-class HomeController < ShopifyApp::AuthenticatedController
+#class HomeController < ShopifyApp::AuthenticatedController
+class HomeController < ApplicationController
+before_action :authenticate_user!, only: [:index]
+
   def index
-    @products = ShopifyAPI::Product.find(:all, :params => {:limit => 10})
+    #@products = ShopifyAPI::Product.find(:all, :params => {:limit => 10})
   end
 
-  def cart
-    @products = ShopifyAPI::Product.find(:all, :params => {:limit => 10})
-  end
-
-  def discounts
-  end
-
-  def loyalty
-  end
-
-  def customer
-  end
-  
 end

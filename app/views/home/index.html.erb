@@ -1,84 +1,10 @@
-<script src="/assets/cart.js?<%= Time.now.strftime('%Y%m%d%H') %>"></script>
-
-<div class="layout-splitview">
-
-  <div class="layout-sidebar">
-
-    <div class="layout-view">
-      <ul class="listview listview--horizontal listview--edgetoedge">
-        <% @products.group_by(&:product_type).each do |type, products| %>
-          <li class="listview-sectionheader">
-            <div><%= type %></div>
-          </li>
-
-          <% products.each do |product| %>
-            <li class="listview-item">
-              <div class="label-primary"><%= product.title %></div>
-              <div class="label-secondary"><%= pluralize(product.variants.count, "variant") %> </div>
-            </li>
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-
-
-  <button class="Polaris-Button">Example button</button>
-
-
-  <div class="layout-master">
-    <div class="layout-view layout-view--padding">
-      <p>This application demos the various ways an external app can now interact with Shopify POS.</p>
-
-      <div id="user-info">
-        <h2>User Info</h2>
-        <table id="user">
-          <tr>
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Account Owner?</th>
-          </tr>
-        </table>
-      </div>
-
-      <div id="user-actions">
-        <h2>Function calls</h2>
-        <p>
-          <a href="javascript:void(0)" class="btn" onclick="ShopifyPOS.flashNotice('Flash a notice message.');">Flash notice</a>
-          <a href="javascript:void(0)" class="btn" onclick="ShopifyPOS.flashError('Flash an error message.');">Flash error</a>
-        </p>
-
-        <h2>Modal Windows</h2>
-        <p>
-          <a href="javascript:void(0)" class="btn" onclick="alert('Hello world!')">Alert modal</a>
-          <a href="javascript:void(0)" class="btn" onclick="confirm('Are you sure?')">Confirm modal</a>
-          <a href="javascript:void(0)" class="btn" onclick="prompt('Enter a value:')">Prompt modal</a>
-        </p>
-
-        <h2>System</h2>
-        <p>
-          <a href="javascript:void(0)" class="btn" onclick="window.print()">Print</a>
-        </p>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<script>
-  // We're ready!
-  ShopifyPOS.ready(function() {
-    document.querySelector('#user-actions').style.display = "block";
-
-    var user = ShopifyPOS.User.current;
-    var row = $("<tr>")
-      .append($('<td>').html(user.id))
-      .append($('<td>').html(user.first_name))
-      .append($('<td>').html(user.last_name))
-      .append($('<td>').html(user.email))
-      .append($('<td>').html(user.account_owner))
-      .appendTo("#user");
-  });
-</script>
+<p class="navbar-text pull-right">
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+</p>
