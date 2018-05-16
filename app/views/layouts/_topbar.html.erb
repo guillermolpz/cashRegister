@@ -1,27 +1,51 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#"><%= Rails.application.class.parent_name %></a>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Ayuda</a></li>
-        <li><a href="#">Configuración</a></li>
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="<%= root_path %>">Tapioca</a>
+  </div>
+  <!-- /.navbar-header -->
+
+  <% if user_signed_in? %>
+  <ul class="nav navbar-top-links navbar-right">
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+        <strong><%= current_user.email %></strong><i class="fa fa-user fa-fw"></i>
+        <i class="fa fa-caret-down"></i>
+      </a>
+
+      <ul class="dropdown-menu dropdown-user">
+        <li>
+        <%= link_to edit_user_registration_path, :class => 'navbar-link' do %>
+          <i class='fa fa-user fa-fw'></i> Editar información
+        <% end %>
+      </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-gear fa-fw"></i>
+            Configuración</a>
+        </li>
+        <li class="divider"></li>
+
         <% if user_signed_in? %>
+
+
           <li>
-            <%= link_to "Salir", destroy_user_session_path, method: :delete %>
-          </li>
+          <%= link_to destroy_user_session_path, :class => 'navbar-link', method: :delete do %>
+            <i class='fa fa-sign-out fa-fw'></i> Salir
+          <% end %>
+
+        </li>
+
         <% end %>
       </ul>
-      <form class="navbar-form navbar-right">
-        <input type="text" class="form-control" placeholder="Buscar...">
-      </form>
-    </div>
-  </div>
-</nav>
+      <!-- /.dropdown-user -->
+    </li>
+    <!-- /.dropdown -->
+  </ul>
+  <% end %>
+  <!-- /.navbar-top-links -->

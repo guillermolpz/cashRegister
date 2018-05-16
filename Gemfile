@@ -9,11 +9,8 @@ gem 'shopify_app'
 
 #Librery bootstrap
 gem 'bootstrap-sass',       '3.2.0.0'
+gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
-
-source 'https://rails-assets.org/' do
-  gem 'rails-assets-adminlte'
-end
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -21,9 +18,10 @@ gem 'jquery-rails'
 #Mysql2
 gem 'mysql2'
 
-
 #devise
 gem 'devise'
+
+gem 'bootstrap_sb_admin_base_v2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'

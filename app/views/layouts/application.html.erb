@@ -6,35 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tapioca</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="<%= controller_name %> <%= action_name %>" id="<%= controller_name %>-<%= action_name %>">
+  <body id="<%= controller_name %>-<%= action_name %>">
+    <div id="wrapper">
+
     <%= render 'layouts/topbar' %>
 
     <% if user_signed_in? %>
-      <div class="container-fluid">
-        <div class="row">
-            <%= render 'layouts/sidebar' %>
-
-          <div class="main">
-            <%= render 'layouts/alerts' %>
-
-            <%= yield %>
-          </div>
-        </div>
+      <%= render 'layouts/sidebar' %>
+      <div id="page-wrapper">
+      <%= render 'layouts/alerts' %>
+        <%= yield %>
       </div>
+
     <% else %>
-      <br>
-      <div class="row">
-        <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4">
+        <div class="container">
           <%= render 'layouts/alerts' %>
-        </div>
-      </div>
-
-      <%= yield %>
+          <%= yield %>
+          </div>
     <% end %>
+
+  </div>
   </body>
 </html>

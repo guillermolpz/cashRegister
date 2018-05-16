@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require adminlte
-//= require jquery-ui.min
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap_sb_admin_base_v2
 //= require_tree .
