@@ -1,5 +1,4 @@
-#class HomeController < ShopifyApp::AuthenticatedController
-class HomeController < ApplicationController
+class ProductController < ApplicationController
 
   include ShopifyApp::LoginProtection
   before_action :login_again_if_different_shop
@@ -9,7 +8,5 @@ class HomeController < ApplicationController
   def index
     # Get all product
     @products = ShopifyAPI::Product.find(:all, :params => {:limit => 10})
-    @price_rules = ShopifyAPI::PriceRule.find(:all, params: { limit:10 })
   end
-
 end

@@ -1,90 +1,43 @@
-<div class="navbar-default sidebar" role="navigation">
-  <div class="sidebar-nav navbar-collapse" aria-expanded="false" style="height: 1px;">
-    <ul class="nav in" id="side-menu">
-      <li class="<%= current_page?(root_path) ? "active" : "" %>">
-        <a href="<%= root_path %>">
-          <i class="fa fa-dashboard fa-fw"></i>
-          Dashboard</a>
-      </li>
-      <li class="">
-        <a href="#">
-          <i class="fa fa-bar-chart-o fa-fw"></i>
-          Reportes<span class="fa arrow"></span></a>
-        <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
-          <li>
-            <a href="flot.html">Flot Charts</a>
-          </li>
-          <li>
-            <a href="morris.html">Morris.js Charts</a>
-          </li>
-        </ul>
-        <!-- /.nav-second-level -->
-      </li>
-      <li>
-        <a href="forms.html">
-          <i class="fa fa-edit fa-fw"></i>
-          Pedidos</a>
-      </li>
-      <li>
-        <a href="tables.html">
-          <i class="fa fa-table fa-fw"></i>
-          Productos</a>
-      </li>
-      <li>
-        <a href="forms.html">
-          <i class="fa fa-edit fa-fw"></i>
-          Clientes</a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="fa fa-sitemap fa-fw"></i>
-          Multi-Level Dropdown<span class="fa arrow"></span></a>
-        <ul class="nav nav-second-level collapse">
-          <li>
-            <a href="#">Second Level Item</a>
-          </li>
-          <li>
-            <a href="#">Second Level Item</a>
-          </li>
-          <li>
-            <a href="#">Third Level
-              <span class="fa arrow"></span></a>
-            <ul class="nav nav-third-level collapse">
-              <li>
-                <a href="#">Third Level Item</a>
-              </li>
-              <li>
-                <a href="#">Third Level Item</a>
-              </li>
-              <li>
-                <a href="#">Third Level Item</a>
-              </li>
-              <li>
-                <a href="#">Third Level Item</a>
-              </li>
-            </ul>
-            <!-- /.nav-third-level -->
-          </li>
-        </ul>
-        <!-- /.nav-second-level -->
-      </li>
-      <li>
-        <a href="#">
-          <i class="fa fa-files-o fa-fw"></i>
-          Sample Pages<span class="fa arrow"></span></a>
-        <ul class="nav nav-second-level collapse">
-          <li>
-            <a href="blank.html">Blank Page</a>
-          </li>
-          <li>
-            <a href="login.html">Login Page</a>
-          </li>
-        </ul>
-        <!-- /.nav-second-level -->
-      </li>
-    </ul>
+<!--Sidebar start-->
+<aside>
+  <div id="sidebar" class="nav-collapse">
+  <!-- sidebar menu start-->
+    <div class="leftside-navigation" tabindex="5000" style="overflow: hidden; outline: none;">
+      <ul class="sidebar-menu" id="nav-accordion">
+        <li>
+          <%= link_to root_path, :class => current_page?(root_path) ? "active" : "" do %>
+            <i class='fa fa-dashboard'></i> Dashboard
+          <% end %>
+        </li>
+        <li>
+          <%= link_to sell_index_path, :class => current_page?(sell_index_path) ? "active" : "" do %>
+            <i class='fa fa-shopping-cart'></i> Vender
+          <% end %>
+        </li>
+        <!--<li>
+          <%= link_to sell_index_path, :class => current_page?(sell_index_path) ? "active" : "" do %>
+            <i class='fa fa-bar-chart-o'></i> Reporte
+          <% end %>
+        </li>-->
+        <li>
+          <%= link_to order_index_path, :class => current_page?(order_index_path) ? "active" : "" do %>
+            <i class='fa fa-th'></i> Pedidos
+          <% end %>
+        </li>
+        <li>
+          <%= link_to product_index_path, :class => current_page?(product_index_path) ? "active" : "" do %>
+            <i class='fa fa-ticket'></i> Productos
+          <% end %>
+        </li>
+      </ul>
+    </div>
+    <!-- sidebar menu end-->
+    <div id="ascrail2000" class="nicescroll-rails" style="width: 3px; z-index: auto; cursor: default; position: absolute; top: 0px; left: 237px; height: 297px; opacity: 0; display: block;">
+      <div style="position: relative; top: 24px; float: right; width: 3px; height: 132px; background-color: rgb(31, 181, 173); border: 0px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 0px;"></div>
+    </div>
+    <div id="ascrail2000-hr" class="nicescroll-rails" style="height: 3px; z-index: auto; top: 294px; left: 0px; position: absolute; cursor: default; display: none; width: 237px; opacity: 0;">
+      <div style="position: relative; top: 0px; height: 3px; width: 240px; background-color: rgb(31, 181, 173); border: 0px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 0px;"></div>
+    </div>
   </div>
-  <!-- /.sidebar-collapse -->
-</div>
-<!-- /.navbar-static-side -->
-</nav>
+</aside>
+<!--Sidebar end-->

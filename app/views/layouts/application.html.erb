@@ -11,24 +11,26 @@
   </head>
 
   <body id="<%= controller_name %>-<%= action_name %>">
-    <div id="wrapper">
 
-    <%= render 'layouts/topbar' %>
-
-    <% if user_signed_in? %>
-      <%= render 'layouts/sidebar' %>
-      <div id="page-wrapper">
-      <%= render 'layouts/alerts' %>
-        <%= yield %>
-      </div>
-
-    <% else %>
-        <div class="container">
-          <%= render 'layouts/alerts' %>
-          <%= yield %>
+    <section id="container">
+      <% if user_signed_in? %>
+        <%= render 'layouts/topbar' %>
+        <%= render 'layouts/sidebar' %>
+        <section id="main-content">
+          <div class="wrapper">
+            <%= render 'layouts/alerts' %>
+            <%= yield %>
           </div>
-    <% end %>
+        </section>
+      <% else %>
+        <section id="main-content2">
+          <div class="wrapper">
+            <%= render 'layouts/alerts' %>
+            <%= yield %>
+          </div>
+        </section>
+      <% end %>
+    </section>
 
-  </div>
   </body>
 </html>

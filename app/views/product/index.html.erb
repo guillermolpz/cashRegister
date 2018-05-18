@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-lg-12">
+      <h1 class="page-header">Productos</h1>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          Lista de productos
+      </div>
+      <div class="panel-body">
+        <div class="row">
+
+          <div class="layout-sidebar">
+            <div class="layout-view">
+              <ul class="listview listview--horizontal listview--edgetoedge">
+                <% @products.group_by(&:product_type).each do |type, products| %>
+                  <li class="listview-sectionheader">
+                    <div><%= type %></div>
+                  </li>
+
+                  <% products.each do |product| %>
+                    <li class="listview-item">
+                      <div class=""><%= product.title %></div>
+                      <div class=""><%= pluralize(product.variants.count, "variant") %> </div>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,51 +1,51 @@
-<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="<%= root_path %>">Tapioca</a>
+<header class="header fixed-top clearfix">
+  <!--logo start-->
+  <div class="brand">
+    <a href="<%= root_path %>" class="logo">
+      <h1 class="" style="font-size: 16px; vertical-align: middle; margin: 10px auto; color: #fff; font-weight: bold;">Tapioca</h1>
+    </a>
+    <div class="sidebar-toggle-box">
+      <div class="fa fa-bars"></div>
+    </div>
   </div>
-  <!-- /.navbar-header -->
-
+  <!--logo end-->
   <% if user_signed_in? %>
-  <ul class="nav navbar-top-links navbar-right">
-    <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-        <strong><%= current_user.email %></strong><i class="fa fa-user fa-fw"></i>
-        <i class="fa fa-caret-down"></i>
-      </a>
-
-      <ul class="dropdown-menu dropdown-user">
-        <li>
-        <%= link_to edit_user_registration_path, :class => 'navbar-link' do %>
-          <i class='fa fa-user fa-fw'></i> Editar información
-        <% end %>
+  <div class="top-nav clearfix">
+    <!--search & user info start-->
+    <ul class="nav pull-right top-menu">
+      <li>
+        <input type="text" class="form-control search" placeholder="Buscar...">
       </li>
-        <li>
-          <a href="#">
-            <i class="fa fa-gear fa-fw"></i>
-            Configuración</a>
-        </li>
-        <li class="divider"></li>
-
-        <% if user_signed_in? %>
-
-
+      <!-- user login dropdown start-->
+      <li class="dropdown">
+        <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">
+          <%= image_tag("/images/avatar.png", :alt => "Avatar") %>
+          <span class="username"><%= current_user.email %></span>
+          <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu extended logout">
           <li>
-          <%= link_to destroy_user_session_path, :class => 'navbar-link', method: :delete do %>
-            <i class='fa fa-sign-out fa-fw'></i> Salir
+            <%= link_to edit_user_registration_path, :class => 'navbar-link' do %>
+              <i class='fa fa-suitcase'></i> Editar información
+            <% end %>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa fa-cog"></i>
+              Configuración</a>
+          </li>
+          <% if user_signed_in? %>
+          <li>
+            <%= link_to destroy_user_session_path, :class => 'navbar-link', method: :delete do %>
+              <i class='fa fa-key'></i> Salir
+            <% end %>
+          </li>
           <% end %>
+        </ul>
+      </li>
 
-        </li>
-
-        <% end %>
-      </ul>
-      <!-- /.dropdown-user -->
-    </li>
-    <!-- /.dropdown -->
-  </ul>
+    </ul>
+    <!--search & user info end-->
+  </div>
   <% end %>
-  <!-- /.navbar-top-links -->
+</header>
