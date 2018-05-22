@@ -24,10 +24,25 @@
             <i class='fa fa-th'></i> Pedidos
           <% end %>
         </li>
-        <li>
-          <%= link_to product_index_path, :class => current_page?(product_index_path) ? "active" : "" do %>
-            <i class='fa fa-ticket'></i> Productos
-          <% end %>
+
+        <li class="sub-menu dcjq-parent-li">
+          <a href="javascript:;" class="dcjq-parent">
+            <i class='fa fa-ticket'></i>
+            <span>Productos</span>
+            <span class="dcjq-icon"></span>
+          </a>
+          <ul class="sub" style="display: none;">
+            <li>
+              <%= link_to products_path, :class => current_page?(products_path) ? "active" : "" do %>
+                <i class='fa fa-ticket'></i> Productos
+              <% end %>
+            </li>
+            <li>
+              <%= link_to product_index_path, :class => current_page?(product_index_path) ? "active" : "" do %>
+                <i class='fa fa-ticket'></i> Variantes
+              <% end %>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>
