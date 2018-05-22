@@ -29,6 +29,11 @@
             <i class='fa fa-ticket'></i> Productos
           <% end %>
         </li>
+        <li>
+          <%= link_to caja_index_path, :class => current_page?(caja_index_path) ? "active" : "" do %>
+            <i class='fa fa-ticket'></i> Caja
+          <% end %>
+        </li>
       </ul>
     </div>
     <!-- sidebar menu end-->

@@ -1,0 +1,153 @@
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          Corte de caja
+      </div>
+      <div class="panel-body">
+
+        <div class="mail-option">
+          <div class="btn-group">
+            <a data-toggle="dropdown" href="#" class="btn mini blue">
+              Cajas
+              <i class="fa fa-angle-down "></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#">
+                  <i class="fa fa-pencil">Caja 1</i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fa fa-pencil">Caja 2</i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="btn-group pull-right open">
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              Opciones
+              <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu pull-right">
+              <li>
+                <a href="">Imprimir</a>
+              </li>
+              <li>
+                <a href="">Guardar PDF</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row invoice-to">
+            <div class="col-md-4 col-sm-4 pull-left">
+              <h4>Corte de caja</h4>
+              <h2>Franquicia Tapioca</h2>
+              <p>
+                Calle Morelos No. 12
+                <br>
+                Colonia
+                <br>
+                Teléfono: +51 55376 6284
+                <br>
+                Correo electrónico: franquicia@ftapioca.com
+              </p>
+            </div>
+            <div class="col-md-4 col-sm-5 pull-right">
+              <div class="row">
+                <div class="col-md-4 col-sm-5 inv-label">Corte#</div>
+                <div class="col-md-8 col-sm-7">123124</div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-4 col-sm-5 inv-label">Fecha#</div>
+                <div class="col-md-8 col-sm-7">21 Mayo 2018</div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-12 inv-label">
+                  <h3>Total</h3>
+                </div>
+                <div class="col-md-12">
+                  <h1 class="amnt-value"><%= (@sum).round(2) %></h1>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Venta</th>
+              <th scope="col">Fecha</th>
+              <!--<th scope="col">Cliente</th>-->
+              <!--<th scope="col">Estatus de pago</th>-->
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+              <% @orders.each do |order| %>
+                <tr>
+                  <th scope="row"><%= order.order_number %></th>
+                  <td><%= order.created_at %></td>
+                  <td><%= number_to_currency(order.total_price) %></td>
+                </tr>
+              <% end %>
+          </tbody>
+        </table>
+
+        <table class="table table-invoice">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Producto</th>
+              <th class="text-center">fecha</th>
+              <th class="text-center">Monto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              
+              <td>2</td>
+              <% @orders.each do |order| %>
+                <tr>
+                  <td><%= order.order_number %></td>
+                  <td>
+                    <h4>Queso</h4>
+                    <p>hola</p>
+                  </td>
+                  <td><%= order.created_at %></td>
+                  <td><%= number_to_currency(order.total_price) %></td>
+                </tr>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="row">
+          <div class="col-md-8 col-xs-7 payment-method">
+            <h4>Metos de pago</h4>
+            <p>1.- pago en efectivo</p>
+            <p>2.- pagos con tarjeta credito o debito</p>
+            <br>
+            <h3 class="inv-label itatic">Gracias</h3>
+          </div>
+          <div class="col-md-4 col-xs-5 invoice-block pull-right">
+            <ul class="unstyled amounts">
+              <li>Sub-Total : $3820</li>
+              <li>Descuento : 10% </li>
+              <li>Impuesto (15%) ----- </li>
+              <li class="grand-total">Total : $7145</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

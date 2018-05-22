@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2018_05_15_001604) do
 
-  create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "shopify_domain", null: false
     t.string "shopify_token", null: false
     t.datetime "created_at", null: false
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2018_05_15_001604) do
     t.index ["shopify_domain"], name: "index_shops_on_shopify_domain", unique: true
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

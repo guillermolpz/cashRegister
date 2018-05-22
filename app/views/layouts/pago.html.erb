@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tapioca</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body id="<%= controller_name %>-<%= action_name %>">
+    <div id="wrapper">
+
+    <%= render 'layouts/topbar' %>
+
+    <% if user_signed_in? %>
+      <%= render 'layouts/sidebar' %>
+      <div id="page-wrapper">
+      <%= render 'layouts/alerts' %>
+        <%= yield %>
+      </div>
+
+    <% else %>
+        <div class="container">
+          <%= render 'layouts/alerts' %>
+          <%= yield %>
+          </div>
+    <% end %>
+
+  </div>
+  </body>
+</html>
