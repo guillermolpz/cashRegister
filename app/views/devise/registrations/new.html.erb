@@ -1,29 +1,52 @@
-<h2>Sign up</h2>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-signin"}) do |f| %>
+  <h2 class="form-signin-heading">Registrarse</h2>
+  <div class="login-wrap">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <!--Mostrar mensaje de error-->
+    <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :'Foto de perfil' %>
+      <%= f.file_field :image, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :'Nombre'%>
+      <%= f.text_field :name, class: 'form-control', required: true %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :'Apellidos'%>
+      <%= f.text_field :lastName, class: 'form-control', required: true %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :'Nombre de usuario' %>
+      <%= f.text_field :username, class: 'form-control', required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :'Correo electrónico' %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :'Contraseña' %>
+      <%= f.password_field :password, autofocus: true, autocomplete: "off", class: 'form-control' %>
+      <% if @minimum_password_length %>
+        <span class="help-block"><%= @minimum_password_length %> caracteres mínimo</span>
+      <% end %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :'Confirmar contraseña' %>
+      <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "off", class: 'form-control' %>
+    </div>
+
+    <div class="row">
+      <%= f.submit "Registrar", class: 'btn btn-lg btn-login btn-block' %>
+      <%= render "devise/shared/links" %>
+    </div>
+
+  </div><!--end login-wrapr-->
 <% end %>
-
-<%= render "devise/shared/links" %>

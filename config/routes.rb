@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   get 'order_items/destroy'
   get 'carts/show'
   get 'products/index'
+
   devise_for :users
-  #devise_for :users, controllers: { sessions: 'users/sessions' }
+  # devise_for :users, controllers: { sessions: 'users/sessions' }
 
   resources :products, only: [:index]
   resource :cart, only: [:show]

@@ -4,10 +4,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.0'
 
 
-#API Shopify
+# API Shopify
 gem 'shopify_app'
 
-#Librery bootstrap
+# Librery bootstrap
 gem 'bootstrap-sass',       '3.2.0'
 gem 'autoprefixer-rails'
 gem "font-awesome-rails"
@@ -15,11 +15,14 @@ gem "font-awesome-rails"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-#Mysql2
+# Mysql2
 gem 'mysql2'
 
-#devise
+# devise
 gem 'devise'
+
+# Photo profile user
+gem 'dragonfly'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'

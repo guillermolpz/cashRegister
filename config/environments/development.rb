@@ -14,15 +14,15 @@ Rails.application.configure do
 
   ##Add devise configuration
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  #config.action_mailer.delivery_method = :smtp
-  #config.action_mailer.smtp_settings = {
-  #    address: "smtp.gmail.com",
-  #    port: 587,
-  #    authentication: "plain",
-  #    enable_starttls_auto: true,
-  #    user_name: "your_email@gmail.com",
-  #    password: "your_password"
-  #}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      authentication: "plain",
+      enable_starttls_auto: true,
+      user_name: ENV["GMAIL_USERNAME"],
+      password: ENV["GMAIL_PASSWORD"]
+  }
 
 
   # Enable/disable caching. By default caching is disabled.

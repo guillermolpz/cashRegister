@@ -19,8 +19,13 @@
       <!-- user login dropdown start-->
       <li class="dropdown">
         <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">
-          <%= image_tag("/images/avatar.png", :alt => "Avatar") %>
-          <span class="username"><%= current_user.email %></span>
+          <!--<%= image_tag("/images/avatar.png", :alt => "Avatar") %>-->
+          <% if current_user.image_stored? %>
+            <%= image_tag (current_user.image.url ) %>
+          <% else %>
+            <%= image_tag("/images/avatar.png", :alt => "Avatar") %>
+          <% end %>
+          <span class="username"><%= current_user.username %></span>
           <b class="caret"></b>
         </a>
         <ul class="dropdown-menu extended logout">
