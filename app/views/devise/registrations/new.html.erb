@@ -6,6 +6,21 @@
     <%= devise_error_messages! %>
 
     <div class="form-group">
+      <%= f.label :'Rol del usuario' %>
+      <div class="minimal single-row">
+        <div class="checkbox">
+          <% for role in User::ROLES %>
+            <div class="icheckbox_minimal">
+              <%= check_box_tag "user[roles][#{role}]", role, @user.roles.include?(role), {:name => "user[roles][]"}%>
+            </div>
+            <%= label_tag "user_roles_#{role}", role.to_s.humanize %><br />
+          <% end %>
+          <%= hidden_field_tag "user[roles][]", "" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
       <%= f.label :'Foto de perfil' %>
       <%= f.file_field :image, class: 'form-control' %>
     </div>

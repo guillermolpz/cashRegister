@@ -18,11 +18,14 @@ gem 'jquery-rails'
 # Mysql2
 gem 'mysql2'
 
-# devise
+# Autenticación de usuarios
 gem 'devise'
 
 # Photo profile user
 gem 'dragonfly'
+
+# Autorización de usuarios
+gem 'cancancan'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'

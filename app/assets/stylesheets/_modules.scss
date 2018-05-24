@@ -5769,3 +5769,17 @@ right: -1px;
 .item-text_panel {
   font-size: 10px !important;
 }
+
+.checkbox1 {
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  display: block;
+  width: 140%;
+  height: 140%;
+  margin: 0px;
+  padding: 0px;
+  background: rgb(255, 255, 255);
+  border: 0px;
+  opacity: 0;
+}
