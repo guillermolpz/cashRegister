@@ -58,28 +58,37 @@ in the database.yml file is the configuration of the database, in which are the 
 
 ### Database initialization
 Execute the following commands to initialize the database
-1. create the data base
+**1. create the data base**
 ```
 rake db:create
 ```
-2. migrate de database
+**2. migrate de database**
 ```
 rake db:migrate
 ```
-3. upload data to the database
+**3. upload data to the database**
 ```
 rake db:seed
 ```
-4. empty database
+**4. empty database**
 ```
 rake db:reset
 ```
-
-### How to run the test suite
-
 ### Services (job queues, cache servers, search engines, etc.)
 
-### Deployment instructions
+
+## How to run the test suite
+to run the project you must use ngrok as a tunnel to connect with the api of shopify, to install ngrok visit the official page [ngrok](https://dashboard.ngrok.com/get-started).
+
+Once ngrok is installed on your machine, execute the following command:
+**ngrok http 3000**
+
+Execute the following in the project:
+**rails server**
+
+
+## Deployment instructions
+
 
 ## Authors
 
@@ -87,3 +96,7 @@ rake db:reset
 * **Guillermo Alberto Luna López** - *Skills-depot* - [g.albertolpz@gmail.com](g.albertolpz@gmail.com)
 * **Elizabeth López Pérez** - *Skills-depot* - [sfsolee2@gmail.com](sfsolee2@gmail.com)
 * **Javier Pineda Rodriguez** - *Skills-depot* - [javier.pineda.rodriguez@gmail.com](javier.pineda.rodriguez@gmail.com)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
