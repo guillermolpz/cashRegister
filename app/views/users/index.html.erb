@@ -11,7 +11,9 @@
 
         <div class="clearfix">
           <div class="btn-group pull-right">
-            <a class="btn btn-primary text-white"><i class="fa fa-plus"></i> Agregar usuarios</a>
+            <%= link_to new_user_path, class: "btn btn-primary" do %>
+              <i class='fa fa-plus'></i> Agregar usuarios
+            <% end %>
           </div>
         </div>
 
@@ -43,17 +45,27 @@
                   <td><%= user.lastName %></td>
                   <td><%= user.email %></td>
                   <td><%= traduceRol(user.roles_mask) %></td>
-                  <td><%= link_to 'Ver', user %></td>
-                  <td><%#= link_to 'Edit', edit_user_path(user) %></td>
-                  <td><%#= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <td>
+                    <%= link_to user, class: "btn btn-info" do %>
+                      <i class='fa fa-eye'></i> Ver
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to edit_user_path(user), class: "btn btn-success" do %>
+                      <i class='fa fa-edit'></i> Editar
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to user, method: :delete, data: { confirm: 'Estas seguro de eliminar?' }, class: "btn btn-danger" do %>
+                      <i class='fa fa-trash'></i> Eliminar
+                    <% end %>
+                  </td>
                 </tr>
               <% end %>
             </tbody>
 
           </table>
         </section>
-        <%#= link_to 'New User', new_user_path %>
-
 
       </div>
     </section>

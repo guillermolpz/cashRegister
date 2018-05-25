@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col-md-12">
     <section class="panel">
-      <header class="panel-heading">Editar usuario <strong><< <%=@user.name %> >></strong> </header>
+      <header class="panel-heading">Nuevo usuario</header>
       <div class="panel-body">
         <div class="position-center">
-          <%= render 'form' %>
+          <%= render 'form', user: @user %>
         </div>
       </div>
     </div>
