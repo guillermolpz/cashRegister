@@ -1,7 +1,5 @@
 # POS WITH SHOPIFY
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Point of Sale using the Shopify API
 
 ## Getting Started
 
@@ -15,15 +13,17 @@ Before executing the project, you must install the following:
 1.Install ruby version 2.5.0
 2.Install rails  version 5.2.0
 3.git clone git@github.com:Josue123/cashRegister.git
-4.Execute the command in the cashRegister project **bundle install**
+4.Execute the command in the cashRegister project  --> bundle install <--
 
 ```
+### System dependencies
 
+Dependencies used in the project
 
-Things you may want to cover:
-
-* Ruby version
-* System dependencies
+* **shopify_app** - *Shopify API* - [https://github.com/Shopify/shopify_app](https://github.com/Shopify/shopify_app)
+* **devise** - *Autenticación de usuarios* - [https://github.com/plataformatec/devise](https://github.com/plataformatec/devise)
+* **cancancan** - *Autorización de usuarios* - [https://github.com/CanCanCommunity/cancancan](https://github.com/CanCanCommunity/cancancan)
+* **bootstrap-sass** - *bootstrap-sass* - [https://github.com/twbs/bootstrap-sass](https://github.com/twbs/bootstrap-sass)
 
 * Configuration
 
