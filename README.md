@@ -29,7 +29,7 @@ Dependencies used in the project
 * create a file called environment_variables.yml in the following config directory to place all the api keys, as shown below:
 
 ```
-# SMT gmail
+# SMTP gmail
   GMAIL_USERNAME: '***'
   GMAIL_PASSWORD: '***'
 # Photo profile user
@@ -39,12 +39,19 @@ Dependencies used in the project
 # Credentials app shopify
   SHOPIFY_API_KEY: '***'
   SHOPIFY_SECRET: '***'
-
+# Database
+  DATABASE_NAME: '***'
+  DATABASE_USERNAME: '***'
+  DATABASE_PASSWORD: '***'
+  DATABASE_HOST: '***'
 ```
+
 
 ### Database creation
 
+
 ### Database initialization
+
 
 ### How to run the test suite
 
