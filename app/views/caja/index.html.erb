@@ -27,7 +27,7 @@
             </ul>
           </div>
 
-          <div class="btn-group pull-right open">
+          <div class="btn-group pull-right">
             <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
               Opciones
               <i class="fa fa-angle-down"></i>
@@ -65,7 +65,9 @@
               <br>
               <div class="row">
                 <div class="col-md-4 col-sm-5 inv-label">Fecha#</div>
-                <div class="col-md-8 col-sm-7">21 Mayo 2018</div>
+                <div class="col-md-8 col-sm-7"><%= @fecha %> </div>
+                <div class="col-md-4 col-sm-5 inv-label">Hora#</div>
+                <div class="col-md-8 col-sm-7"><%= @hora %> </div>
               </div>
               <br>
               <div class="row">
@@ -73,61 +75,50 @@
                   <h3>Total</h3>
                 </div>
                 <div class="col-md-12">
-                  <h1 class="amnt-value"><%= (@sum).round(2) %></h1>
+                  <h1 class="amnt-value">$ <%= (@total).round(2) %></h1>
                 </div>
               </div>
             </div>
         </div>
-
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">Venta</th>
-              <th scope="col">Fecha</th>
-              <!--<th scope="col">Cliente</th>-->
-              <!--<th scope="col">Estatus de pago</th>-->
-              <th scope="col">Total</th>
-            </tr>
-          </thead>
-          <tbody>
-              <% @orders.each do |order| %>
-                <tr>
-                  <th scope="row"><%= order.order_number %></th>
-                  <td><%= order.created_at %></td>
-                  <td><%= number_to_currency(order.total_price) %></td>
-                </tr>
-              <% end %>
-          </tbody>
-        </table>
 
         <table class="table table-invoice">
           <thead>
             <tr>
               <th>#</th>
               <th>Producto</th>
-              <th class="text-center">fecha</th>
+              <th class="text-center">Fecha</th>
+              <th class="text-center">Hora</th>
               <th class="text-center">Monto</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>1</td>
-              
-              <td>2</td>
-              <% @orders.each do |order| %>
+              <% @Pedido.each do |pedido| %>
                 <tr>
-                  <td><%= order.order_number %></td>
+                  <td><%= pedido.id %></td>
                   <td>
-                    <h4>Queso</h4>
-                    <p>hola</p>
+                    <h4>Producto</h4>
+                    <p>Descripcion del prodcuto que se vendio</p>
                   </td>
-                  <td><%= order.created_at %></td>
-                  <td><%= number_to_currency(order.total_price) %></td>
+                  <td><%= pedido.created_at %></td>
+                  <td><%= pedido.time %></td>
+                  <td><%= pedido.total %></td>
                 </tr>
               <% end %>
             </tr>
           </tbody>
         </table>
+
+        <div class="col-lg-6">
+          <div class="btn-group">
+            <a href="" class="btn btn-default" data-wysihtml5-command="bold">Tarjeta</a>
+            <a href="" class="btn btn-default">$ <%= (@totalT).round(2) %></a>
+          </div>
+          <div class="btn-group">
+            <a href="" class="btn btn-default" data-wysihtml5-command="bold">Efectivo</a>
+            <a href="" class="btn btn-default">$ <%= (@totalE).round(2) %></a>
+          </div>
+        </div>
 
         <div class="row">
           <div class="col-md-8 col-xs-7 payment-method">
@@ -139,12 +130,18 @@
           </div>
           <div class="col-md-4 col-xs-5 invoice-block pull-right">
             <ul class="unstyled amounts">
-              <li>Sub-Total : $3820</li>
-              <li>Descuento : 10% </li>
-              <li>Impuesto (15%) ----- </li>
-              <li class="grand-total">Total : $7145</li>
+              <li>Sub-Total : $ <%= (@subtotal).round(2) %></li>
+              <li>Impuesto (16%) $ <%= (@IVA).round(2) %></li>
+              <li class="grand-total">Total : $ <%= (@total).round(2) %></li>
             </ul>
           </div>
+        </div>
+
+        <div class="text-center invoice-btn">
+          <a href="" class="btn btn-success btn-lg">
+            <i class="fa fa-check"></i>
+            Guaradar Corte
+          </a>
         </div>
 
       </div>

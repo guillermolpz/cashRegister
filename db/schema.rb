@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2018_05_21_043046) do
 
-  create_table "order_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "order_items", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "product_id"
     t.bigint "order_id"
     t.decimal "unit_price", precision: 12, scale: 3
@@ -24,13 +24,13 @@ ActiveRecord::Schema.define(version: 2018_05_21_043046) do
     t.index ["product_id"], name: "index_order_items_on_product_id"
   end
 
-  create_table "order_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "order_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.decimal "subtotal", precision: 12, scale: 3
     t.decimal "tax", precision: 12, scale: 3
     t.decimal "shipping", precision: 12, scale: 3
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2018_05_21_043046) do
     t.index ["order_status_id"], name: "index_orders_on_order_status_id"
   end
 
-  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.decimal "price", precision: 12, scale: 3
     t.boolean "active"
