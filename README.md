@@ -25,17 +25,32 @@ Dependencies used in the project
 * **cancancan** - *Autorización de usuarios* - [https://github.com/CanCanCommunity/cancancan](https://github.com/CanCanCommunity/cancancan)
 * **bootstrap-sass** - *bootstrap-sass* - [https://github.com/twbs/bootstrap-sass](https://github.com/twbs/bootstrap-sass)
 
-* Configuration
+### Configuration
+* create a file called environment_variables.yml in the following config directory to place all the api keys, as shown below:
 
-* Database creation
+```
+# SMT gmail
+  GMAIL_USERNAME: '***'
+  GMAIL_PASSWORD: '***'
+# Photo profile user
+  DRAGONFLY_SECRET: '***'
+# Users with devise
+  DEVISE_SECRET_KEY: ''
+# Credentials app shopify
+  SHOPIFY_API_KEY: '***'
+  SHOPIFY_SECRET: '***'
 
-* Database initialization
+```
 
-* How to run the test suite
+### Database creation
 
-* Services (job queues, cache servers, search engines, etc.)
+### Database initialization
 
-* Deployment instructions
+### How to run the test suite
+
+### Services (job queues, cache servers, search engines, etc.)
+
+### Deployment instructions
 
 ## Authors
 
