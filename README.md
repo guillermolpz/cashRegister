@@ -24,6 +24,7 @@ Dependencies used in the project
 * **devise** - *Autenticación de usuarios* - [https://github.com/plataformatec/devise](https://github.com/plataformatec/devise)
 * **cancancan** - *Autorización de usuarios* - [https://github.com/CanCanCommunity/cancancan](https://github.com/CanCanCommunity/cancancan)
 * **bootstrap-sass** - *bootstrap-sass* - [https://github.com/twbs/bootstrap-sass](https://github.com/twbs/bootstrap-sass)
+* **dragonfly** - *dragonfly* - [https://github.com/markevans/dragonfly](https://github.com/markevans/dragonfly)
 
 ### Configuration
 * create a file called environment_variables.yml in the following config directory to place all the api keys, as shown below:
@@ -46,12 +47,33 @@ Dependencies used in the project
   DATABASE_HOST: '***'
 ```
 
-
 ### Database creation
+in the database.yml file is the configuration of the database, in which are the three development environments
 
+```
+  development:
+  test:
+  production:
+```
 
 ### Database initialization
-
+Execute the following commands to initialize the database
+1. create the data base
+```
+rake db:create
+```
+2. migrate de database
+```
+rake db:migrate
+```
+3. upload data to the database
+```
+rake db:seed
+```
+4. empty database
+```
+rake db:reset
+```
 
 ### How to run the test suite
 
