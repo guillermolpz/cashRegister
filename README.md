@@ -12,9 +12,10 @@ These instructions will get you a copy of the project up and running on your loc
 Before executing the project, you must install the following:
 
 ```
-**1.Install ruby version 2.5.0**
-**2.Install rails  version 5.2.0**
-
+1.Install ruby version 2.5.0
+2.Install rails  version 5.2.0
+3.git clone git@github.com:Josue123/cashRegister.git
+4.Execute the command in the cashRegister project **bundle install**
 ```
 
 
