@@ -1,0 +1,87 @@
+<%= form_for(@user, html: {class: "form-horizontal"}) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :'Rol del usuario',  class: 'col-lg-4 col-sm-4 control-label' %>
+    <div class="col-lg-8">
+      <div class="minimal single-row">
+        <div class="checkbox">
+          <% for role in User::ROLES %>
+            <div class="icheckbox_minimal">
+              <%= check_box_tag "user[roles][#{role}]", role, @user.roles.include?(role), {:name => "user[roles][]"}%>
+            </div>
+            <%= label_tag "user_roles_#{role}", role.to_s.humanize %><br />
+          <% end %>
+          <%= hidden_field_tag "user[roles][]", "" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :'Foto de perfil', class: 'col-lg-4 col-sm-4 control-label' %>
+    <div class="col-lg-8">
+      <%= f.file_field :image, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :'Nombre', class: 'col-lg-4 col-sm-4 control-label' %>
+    <div class="col-lg-8">
+      <%= f.text_field :name, class: 'form-control', required: true %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :'Apellidos', class: 'col-lg-4 col-sm-4 control-label' %>
+    <div class="col-lg-8">
+      <%= f.text_field :lastName, class: 'form-control', required: true %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :'Nombre de usuario', class: 'col-lg-4 col-sm-4 control-label' %>
+    <div class="col-lg-8">
+      <%= f.text_field :username, class: 'form-control', required: true %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :'Correo electrónico', class: 'col-lg-4 col-sm-4 control-label' %>
+    <div class="col-lg-8">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :'Contraseña', class: 'col-lg-4 col-sm-4 control-label' %>
+    <div class="col-lg-8">
+    <%= f.password_field :password, autofocus: true, autocomplete: "off", class: 'form-control' %>
+    <% if @minimum_password_length %>
+      <span class="help-block"><%= @minimum_password_length %> caracteres mínimo</span>
+    <% end %>
+  </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :'Confirmar contraseña', class: 'col-lg-4 col-sm-4 control-label' %>
+    <div class="col-lg-8">
+      <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "off", class: 'form-control' %>
+    </div>
+  </div>
+  </hr>
+
+  <div class="row">
+    <div class="col-md-6 col-xs-12">
+      <%= link_to 'Cancelar', users_path, class: 'btn btn-success btn-lg pull-left' %>
+    </div>
+    <div class="col-md-6 col-xs-12">
+      <% if current_page?(new_user_path) %>
+        <%= f.submit  "Crear usuario", class: 'btn btn-success btn-lg pull-right' %>
+      <% else %>
+        <%= f.submit  "Guardar", class: 'btn btn-success btn-lg pull-right' %>
+      <% end %>
+
+    </div>
+  </div>
+
+<% end %>

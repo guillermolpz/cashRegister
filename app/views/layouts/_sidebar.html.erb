@@ -10,45 +10,23 @@
           <% end %>
         </li>
         <li>
-          <%= link_to sell_index_path, :class => current_page?(sell_index_path) ? "active" : "" do %>
-            <i class='fa fa-shopping-cart'></i> Vender
-          <% end %>
-        </li>
-        <!--<li>
-          <%= link_to sell_index_path, :class => current_page?(sell_index_path) ? "active" : "" do %>
-            <i class='fa fa-bar-chart-o'></i> Reporte
-          <% end %>
-        </li>-->
-        <li>
-          <%= link_to order_index_path, :class => current_page?(order_index_path) ? "active" : "" do %>
-            <i class='fa fa-th'></i> Pedidos
+          <%= link_to products_path, :class => current_page?(products_path) ? "active" : "" do %>
+            <i class='fa fa-shopping-cart'></i> Productos
           <% end %>
         </li>
 
-        <li class="sub-menu dcjq-parent-li">
-          <a href="javascript:;" class="dcjq-parent">
-            <i class='fa fa-ticket'></i>
-            <span>Productos</span>
-            <span class="dcjq-icon"></span>
-          </a>
-          <ul class="sub" style="display: none;">
-            <li>
-              <%= link_to products_path, :class => current_page?(products_path) ? "active" : "" do %>
-                <i class='fa fa-ticket'></i> Productos
-              <% end %>
-            </li>
-            <li>
-              <%= link_to product_index_path, :class => current_page?(product_index_path) ? "active" : "" do %>
-                <i class='fa fa-ticket'></i> Variantes
-              <% end %>
-            </li>
-          </ul>
-        </li>
         <li>
-          <%= link_to caja_index_path, :class => current_page?(caja_index_path) ? "active" : "" do %>
+          <%= link_to users_path, :class => current_page?(users_path) ? "active" : "" do %>
+            <i class='fa fa-user'></i> Usuarios
+          <% end %>
+        </li>
+
+        <li>
+          <%= link_to boxcut_path, :class => current_page?(boxcut_path) ? "active" : "" do %>
             <i class='fa fa-suitcase'></i> Caja
           <% end %>
         </li>
+
       </ul>
     </div>
     <!-- sidebar menu end-->

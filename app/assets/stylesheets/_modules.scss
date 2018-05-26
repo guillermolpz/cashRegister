@@ -107,9 +107,9 @@ a,a:hover,a:focus {
     margin-bottom:15px;
     border-radius:5px;
     -webkit-border-radius:5px;
-    border:1px solid #eaeaea;
+    //border:1px solid #eaeaea;
     box-shadow:none;
-    font-size:12px;
+    //font-size:12px;
 }
 .form-signin .btn-login {
     background:#1fb5ac;
@@ -126,10 +126,10 @@ a,a:hover,a:focus {
     font-weight:300;
 }
 .form-signin a,.form-signin a:hover {
-    color:#1fb5ac;
+    //color:#1fb5ac;
 }
 .form-signin a:hover {
-    text-decoration:underline;
+    //text-decoration:underline;
 }
 .login-wrap {
     padding:20px;
@@ -5768,4 +5768,10 @@ right: -1px;
 
 .item-text_panel {
   font-size: 10px !important;
+}
+.photo {
+  width: 35px;
+}
+.text-white {
+  color: #fff !important;
 }

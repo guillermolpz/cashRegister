@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tapioca</title>
     <%= csrf_meta_tags %>
+    <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type => "image/x-icon" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -19,11 +20,6 @@
         <section id="main-content">
           <div class="wrapper">
             <%= render 'layouts/alerts' %>
-
-            <div class="col-xs-6 text-right">
-              <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
-            </div>
-
             <%= yield %>
           </div>
         </section>
@@ -36,6 +32,9 @@
         </section>
       <% end %>
     </section>
+
+    <!--Show modal-->
+    <div id="modal-holder"></div>
 
   </body>
 </html>

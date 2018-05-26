@@ -1,25 +1,102 @@
-# README
+# POS WITH SHOPIFY
+Point of Sale using the Shopify API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
 
-Things you may want to cover:
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-* Ruby version
+### Prerequisites
 
-* System dependencies
+Before executing the project, you must install the following:
 
-* Configuration
+```
+1.Install ruby version 2.5.0
+2.Install rails  version 5.2.0
+3.git clone git@github.com:Josue123/cashRegister.git
+4.Execute the command in the cashRegister project  --> bundle install <--
 
-* Database creation
+```
+### System dependencies
 
-* Database initialization
+Dependencies used in the project
 
-* How to run the test suite
+* **shopify_app** - *Shopify API* - [https://github.com/Shopify/shopify_app](https://github.com/Shopify/shopify_app)
+* **devise** - *Autenticación de usuarios* - [https://github.com/plataformatec/devise](https://github.com/plataformatec/devise)
+* **cancancan** - *Autorización de usuarios* - [https://github.com/CanCanCommunity/cancancan](https://github.com/CanCanCommunity/cancancan)
+* **bootstrap-sass** - *bootstrap-sass* - [https://github.com/twbs/bootstrap-sass](https://github.com/twbs/bootstrap-sass)
+* **dragonfly** - *dragonfly* - [https://github.com/markevans/dragonfly](https://github.com/markevans/dragonfly)
 
-* Services (job queues, cache servers, search engines, etc.)
+### Configuration
+* create a file called environment_variables.yml in the following config directory to place all the api keys, as shown below:
 
-* Deployment instructions
+```
+# SMTP gmail
+  GMAIL_USERNAME: '***'
+  GMAIL_PASSWORD: '***'
+# Photo profile user
+  DRAGONFLY_SECRET: '***'
+# Users with devise
+  DEVISE_SECRET_KEY: ''
+# Credentials app shopify
+  SHOPIFY_API_KEY: '***'
+  SHOPIFY_SECRET: '***'
+# Database
+  DATABASE_NAME: '***'
+  DATABASE_USERNAME: '***'
+  DATABASE_PASSWORD: '***'
+  DATABASE_HOST: '***'
+```
 
-* ...
-# cashRegister
+### Database creation
+in the database.yml file is the configuration of the database, in which are the three development environments
+
+```
+  development:
+  test:
+  production:
+```
+
+### Database initialization
+Execute the following commands to initialize the database
+**1. create the data base**
+```
+rake db:create
+```
+**2. migrate de database**
+```
+rake db:migrate
+```
+**3. upload data to the database**
+```
+rake db:seed
+```
+**4. empty database**
+```
+rake db:reset
+```
+### Services (job queues, cache servers, search engines, etc.)
+
+
+## How to run the test suite
+to run the project you must use ngrok as a tunnel to connect with the api of shopify, to install ngrok visit the official page [ngrok](https://dashboard.ngrok.com/get-started).
+
+Once ngrok is installed on your machine, execute the following command:
+**ngrok http 3000**
+
+Execute the following in the project:
+**rails server**
+
+
+## Deployment instructions
+
+
+## Authors
+
+* **Josué Flores Osorio** - *Skills-depot* - [josueflores.05@gmail.com](josueflores.05@gmail.com)
+* **Guillermo Alberto Luna López** - *Skills-depot* - [g.albertolpz@gmail.com](g.albertolpz@gmail.com)
+* **Elizabeth López Pérez** - *Skills-depot* - [sfsolee2@gmail.com](sfsolee2@gmail.com)
+* **Javier Pineda Rodriguez** - *Skills-depot* - [javier.pineda.rodriguez@gmail.com](javier.pineda.rodriguez@gmail.com)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
