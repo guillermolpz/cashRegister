@@ -36,6 +36,7 @@ class Ability
       # can [:index, :show, :new, :edit, :create, :update, :destroy], Product
       can [:index, :show], Product
       cannot :destroy, Product
+      cannot [:index, :show, :new, :edit, :create, :update, :destroy], User
     end
 
   end

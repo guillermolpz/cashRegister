@@ -15,12 +15,13 @@
           <% end %>
         </li>
 
-        <li>
-          <%= link_to users_path, :class => current_page?(users_path) ? "active" : "" do %>
-            <i class='fa fa-user'></i> Usuarios
-          <% end %>
-        </li>
-
+        <% if can? :index, User %>
+          <li>
+            <%= link_to users_path, :class => current_page?(users_path) ? "active" : "" do %>
+              <i class='fa fa-user'></i> Usuarios
+            <% end %>
+          </li>
+        <% end %>
 
       </ul>
     </div>
